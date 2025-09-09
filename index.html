@@ -1,0 +1,1368 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karang Taruna Kelurahan Poris Gaga</title>
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary: #2D5F91;
+            --secondary: #F9A826;
+            --accent: #27AE60;
+            --light: #F5F5F5;
+            --dark: #333333;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            padding-top: 80px; /* Untuk mengkompensasi header fixed */
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--secondary);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary);
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+            margin: 20px auto 0;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-item {
+            margin-left: 30px;
+        }
+        
+        .nav-link {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--dark);
+            transition: var(--transition);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding-top: 100px;
+            padding-bottom: 80px;
+            background: linear-gradient(rgba(37, 93, 150, 0.8), rgba(45, 95, 145, 0.8)), url('./img/KantorKelurahanPorisGagaKotaTangerang.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            margin-top: 80px;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        /* Programs Section */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .program-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .program-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .program-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .program-card:hover .program-image img {
+            transform: scale(1.1);
+        }
+        
+        .program-content {
+            padding: 20px;
+        }
+        
+        .program-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        /* Divisi Section */
+        .divisi-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .divisi-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .divisi-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .divisi-icon {
+            height: 80px;
+            width: 80px;
+            margin: 30px auto 20px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .divisi-content {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .divisi-content h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        
+        .divisi-content p {
+            margin-bottom: 20px;
+            color: var(--dark);
+            line-height: 1.8;
+        }
+        
+        /* Warna berbeda untuk setiap divisi */
+        .divisi-humas .divisi-icon { background-color: #3498db; }
+        .divisi-kemasyarakatan .divisi-icon { background-color: #2ecc71; }
+        .divisi-pendidikan .divisi-icon { background-color: #9b59b6; }
+        .divisi-keagamaan .divisi-icon { background-color: #f1c40f; color: #333; }
+        .divisi-lingkungan .divisi-icon { background-color: #1abc9c; }
+        .divisi-seni .divisi-icon { background-color: #e74c3c; }
+        .divisi-olahraga .divisi-icon { background-color: #e67e22; }
+        .divisi-digital .divisi-icon { background-color: #34495e; }
+        
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 250px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(45, 95, 145, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .contact-details {
+            list-style: none;
+        }
+        
+        .contact-details li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-details i {
+            margin-right: 10px;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1001;
+            overflow: auto;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 700px;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+        
+        .modal-header {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .modal-body {
+            margin-bottom: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                gap: 0;
+                flex-direction: column;
+                background-color: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: var(--shadow);
+                padding: 20px 0;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 15px 0;
+            }
+            
+            .hero {
+                padding-top: 80px;
+                padding-bottom: 60px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .divisi-container, .programs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content, .contact-container, .about-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .modal-content {
+                width: 90%;
+                margin: 10% auto;
+                padding: 20px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="img/Logokatarkel.jpeg" alt="Logo Karang Taruna">
+                    <div class="logo-text">Karang Taruna Kelurahan Poris Gaga</div>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#home" class="nav-link">Beranda</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">Tentang</a></li>
+                    <li class="nav-item"><a href="#programs" class="nav-link">Program</a></li>
+                    <li class="nav-item"><a href="#divisions" class="nav-link">Divisi</a></li>
+                    <li class="nav-item"><a href="#gallery" class="nav-link">Galeri</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Kontak</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Karang Taruna Kelurahan Poris Gaga</h1>
+                <p>Wadah pengembangan generasi muda yang kreatif, inovatif, dan produktif untuk membangun masyarakat yang mandiri</p>
+                <a href="#programs" class="btn">Lihat Program Kami</a>
+                <a href="#divisions" class="btn btn-secondary">Lihat Divisi Kami</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tentang Kami</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="./img/Kegiatankatar.jpeg" alt="Kegiatan Karang Taruna">
+                </div>
+                <div class="about-text">
+                    <h3>Karang Taruna sebagai Wadah Pemuda</h3>
+                    <p>Karang Taruna adalah organisasi kepemudaan di Indonesia yang dibentuk oleh masyarakat sebagai wadah generasi muda untuk mengembangkan diri, tumbuh, dan berkembang atas dasar kesadaran serta tanggung jawab sosial dari, oleh, dan untuk generasi muda.</p>
+                    <p>Kami berfokus pada kegiatan-kegiatan yang bersifat edukatif, ekonomis, rekreatif, dan sosial yang bertujuan untuk mengembangkan potensi pemuda di kelurahan kami.</p>
+                    <a href="#divisions" class="btn">Lihat Divisi Kami</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="section" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Program Unggulan</h2>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="./img/kewirausahaan.jpeg" alt="Program Pelatihan">
+                    </div>
+                    <div class="program-content">
+                        <h3>Pelatihan Kewirausahaan</h3>
+                        <p>Program pelatihan untuk membekali pemuda dengan keterampilan berwirausaha dan menciptakan lapangan kerja.</p>
+                        <a href="#" class="btn program-detail" data-program="kewirausahaan">Detail Program</a>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="./img/sosial.jpeg" alt="Program Sosial">
+                    </div>
+                    <div class="program-content">
+                        <h3>Bakti Sosial</h3>
+                        <p>Kegiatan sosial untuk membantu masyarakat yang membutuhkan dan menumbuhkan rasa peduli sesama.</p>
+                        <a href="#" class="btn program-detail" data-program="sosial">Detail Program</a>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="./img/Olahraga.jpeg" alt="Program Olahraga">
+                    </div>
+                    <div class="program-content">
+                        <h3>Olahraga dan Kesehatan</h3>
+                        <p>Mengembangkan bakat olahraga pemuda dan menjaga kesehatan melalui kegiatan fisik yang teratur.</p>
+                        <a href="#" class="btn program-detail" data-program="olahraga">Detail Program</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divisi Section -->
+    <section id="divisions" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Struktur Divisi Kami</h2>
+                <p>Karang Taruna memiliki 8 divisi yang masing-masing fokus pada bidang tertentu</p>
+            </div>
+
+            <div class="divisi-container">
+                <!-- Divisi Hubungan Masyarakat -->
+                <div class="divisi-card divisi-humas">
+                    <div class="divisi-content">
+                        <div class="divisi-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Divisi Hubungan Masyarakat</h3>
+                        <p>Bertanggung jawab dalam membangun dan menjaga hubungan baik dengan masyarakat, instansi pemerintah, serta pihak swasta untuk mendukung program Karang Taruna.</p>
+                        <a href="#" class="btn divisi-detail" data-divisi="humas">Lihat Detail</a>
+                    </div>
+                </div>
+
+                <!-- Divisi Kemasyarakatan -->
+                <div class="divisi-card divisi-kemasyarakatan">
+                    <div class="divisi-content">
+                        <div class="divisi-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Divisi Kemasyarakatan</h3>
+                        <p>Fokus pada pemberdayaan masyarakat melalui berbagai program sosial, ekonomi, dan kesejahteraan untuk meningkatkan kualitas hidup warga.</p>
+                        <a href="#" class="btn divisi-detail" data-divisi="kemasyarakatan">Lihat Detail</a>
+                    </div>
+                </div>
+
+                <!-- Divisi Pendidikan -->
+                <div class="divisi-card divisi-pendidikan">
+                    <div class="divisi-content">
+                        <div class="divisi-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Divisi Pendidikan</h3>
+                        <p>Mengembangkan program-program pendidikan non formal, bimbingan belajar, pelatihan keterampilan, dan peningkatan literasi bagi masyarakat.</p>
+                        <a href="#" class="btn divisi-detail" data-divisi="pendidikan">Lihat Detail</a>
+                    </div>
+                </div>
+
+                <!-- Divisi Keagamaan -->
+                <div class="divisi-card divisi-keagamaan">
+                    <div class="divisi-content">
+                        <div class="divisi-icon">
+                            <i class="fas fa-pray"></i>
+                        </div>
+                        <h3>Divisi Keagamaan</h3>
+                        <p>Memfasilitasi kegiatan keagamaan, pengajian, peringatan hari besar keagamaan, dan pengembangan nilai-nilai spiritual bagi generasi muda.</p>
+                        <a href="#" class="btn divisi-detail" data-divisi="keagamaan">Lihat Detail</a>
+                    </div>
+                </div>
+
+                <!-- Divisi Lingkungan Hidup -->
+                <div class="divisi-card divisi-lingkungan">
+                    <div class="divisi-content">
+                        <div class="divisi-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Divisi Lingkungan Hidup</h3>
+                        <p>Melaksanakan program pelestarian lingkungan, penghijauan, pengelolaan sampah, dan penyadaran masyarakat tentang pentingnya menjaga lingkungan.</p>
+                        <a href="#" class="btn divisi-detail" data-divisi="lingkungan">Lihat Detail</a>
+                    </div>
+                </div>
+
+                <!-- Divisi Seni Budaya -->
+                <div class="divisi-card divisi-seni">
+                    <div class="divisi-content">
+                        <div class="divisi-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3>Divisi Seni Budaya</h3>
+                        <p>Mengembangkan dan melestarikan seni budaya lokal melalui berbagai kegiatan kesenian, sanggar seni, dan pagelaran budaya.</p>
+                        <a href="#" class="btn divisi-detail" data-divisi="seni">Lihat Detail</a>
+                    </div>
+                </div>
+
+                <!-- Divisi Olahraga -->
+                <div class="divisi-card divisi-olahraga">
+                    <div class="divisi-content">
+                        <div class="divisi-icon">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <h3>Divisi Olahraga</h3>
+                        <p>Mengorganisir kegiatan olahraga, turnamen, dan pengembangan bakat olahraga pemuda untuk menciptakan generasi yang sehat dan berprestasi.</p>
+                        <a href="#" class="btn divisi-detail" data-divisi="olahraga">Lihat Detail</a>
+                    </div>
+                </div>
+
+                <!-- Divisi Digital dan Informasi -->
+                <div class="divisi-card divisi-digital">
+                    <div class="divisi-content">
+                        <div class="divisi-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Divisi Digital dan Informasi</h3>
+                        <p>Mengelola media sosial, website, dan sistem informasi Karang Taruna serta memberikan pelatihan literasi digital kepada masyarakat.</p>
+                        <a href="#" class="btn divisi-detail" data-divisi="digital">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Galeri Kegiatan</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="./img/Bukber.jpeg" alt="Kegiatan">
+                    <div class="gallery-overlay">
+                        <a href="#" class="btn">Lihat Detail</a>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./img/DukunganMahasiswa.jpeg" alt="Kegiatan">
+                    <div class="gallery-overlay">
+                        <a href="#" class="btn">Lihat Detail</a>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./img/lurah.jpeg" alt="Kegiatan">
+                    <div class="gallery-overlay">
+                        <a href="#" class="btn">Lihat Detail</a>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./img/disumpahwkw.jpeg" alt="Kegiatan">
+                    <div class="gallery-overlay">
+                        <a href="#" class="btn">Lihat Detail</a>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./img/Kegiatankatar.jpeg" alt="Kegiatan">
+                    <div class="gallery-overlay">
+                        <a href="#" class="btn">Lihat Detail</a>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./img/DukunganMahasiswa.jpeg" alt="Kegiatan">
+                    <div class="gallery-overlay">
+                        <a href="#" class="btn">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Hubungi Kami</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Informasi Kontak</h3>
+                    <ul class="contact-details">
+                        <li><i class="fas fa-map-marker-alt"></i> Jl. Raya Poris Indah No.1, RT.004/RW.003, Poris Gaga, Kec. Batuceper, Kota Tangerang, Banten 15122, Indonesia</li>
+                        <li><i class="fas fa-phone"></i> 085892215869</li>
+                        <li><i class="fas fa-envelope"></i> KATAR.PORGA@gmail.com</li>
+                        <li><i class="fas fa-clock"></i> Senin - Jumat: 09.00 - 17.00 WIB</li>
+                    </ul>
+
+                    <a href="https://www.yt/akun-anda" target="_blank">
+                    <img src="img/yt.png" alt="Ikon Facebook" width="30" height="30">
+                    </a>
+                    <a href="https://www.instagram.com/katar.porisgaga/?igsh=NTcybnJqd2d1dmxs#" target="_blank">
+                    <img src="img/instagram.png" alt="Ikon Instagram" width="30" height="30">
+                    </a>
+                    <a href="https://www.instagram.com/katar.porisgaga/?igsh=NTcybnJqd2d1dmxs#" target="_blank">
+                    <img src="img/tiktok.png" alt="Ikon Instagram" width="30" height="30">
+                    </a>
+                    <a href="https://web.whatsapp.com/" target="_blank">
+                    <img src="img/wa.png" alt="Ikon Instagram" width="30" height="30">
+                    </a>
+                    <a href="https://www.google.com/search?q=translate&oq=translate&gs_lcrp=EgZjaHJvbWUqDQgAEAAYgwEYsQMYgAQyDQgAEAAYgwEYsQMYgAQyDQgBEAAYgwEYsQMYgAQyDQgCEAAYgwEYsQMYgAQyDQgDEAAYgwEYsQMYgAQyCggEEAAYsQMYgAQyDQgFEAAYgwEYsQMYgAQyBwgGEAAYgAQyCggHEAAYsQMYgAQyCggIEAAYsQMYgAQyCggJEAAYsQMYgATSAQgzODQzajBqN6gCALACAA&sourceid=chrome&ie=UTF-8" target="_blank">
+                    <img src="img/translate.png" alt="Ikon Instagram" width="30" height="30">
+                    </a>
+
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subjek</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Tentang Kami</h3>
+                    <p>Karang Taruna sebagai wadah pembinaan dan pengembangan generasi muda yang berorientasi pada pertumbuhan dan perkembangan individu dan organisasi.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Link Cepat</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#programs">Program</a></li>
+                        <li><a href="#divisions">Divisi</a></li>
+                        <li><a href="#gallery">Galeri</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Divisi Kami</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="divisi-detail" data-divisi="humas">Hubungan Masyarakat</a></li>
+                        <li><a href="#" class="divisi-detail" data-divisi="pendidikan">Pendidikan</a></li>
+                        <li><a href="#" class="divisi-detail" data-divisi="lingkungan">Lingkungan Hidup</a></li>
+                        <li><a href="#" class="divisi-detail" data-divisi="digital">Digital & Informasi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Berita Terbaru</h3>
+                    <p>Berlangganan newsletter kami untuk mendapatkan informasi terbaru tentang kegiatan Karang Taruna.</p>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email Anda" required>
+                        </div>
+                        <button type="submit" class="btn">Berlangganan</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Karang Taruna Kelurahan Poris Gaga</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal untuk Detail Program dan Divisi -->
+    <div id="detailModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2 id="modalTitle">Judul Modal</h2>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <p>Isi modal akan ditampilkan di sini.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }));
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Modal untuk Program dan Divisi
+        const modal = document.getElementById("detailModal");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalBody = document.getElementById("modalBody");
+        const closeModal = document.querySelector(".close-modal");
+
+        // Data untuk program
+        const programData = {
+            kewirausahaan: {
+                title: "Pelatihan Kewirausahaan",
+                content: `
+                    <p>Program Pelatihan Kewirausahaan Karang Taruna Poris Gaga dirancang untuk membekali generasi muda dengan keterampilan dan pengetahuan dalam memulai dan mengelola usaha.</p>
+                    <h3>Materi Pelatihan:</h3>
+                    <ul>
+                        <li>Pemetaan potensi usaha lokal</li>
+                        <li>Pembuatan business plan</li>
+                        <li>Manajemen keuangan sederhana</li>
+                        <li>Strategi pemasaran digital</li>
+                        <li>Teknik penjualan dan pelayanan pelanggan</li>
+                    </ul>
+                                        <h3>Jadwal Kegiatan:</h3>
+                    <p>Pelatihan dilaksanakan setiap bulan dengan jadwal sebagai berikut:</p>
+                    <ul>
+                        <li>Setiap Sabtu minggu ke-2: Pelatihan teori</li>
+                        <li>Setiap Sabtu minggu ke-3: Praktek lapangan</li>
+                        <li>Setiap Sabtu minggu ke-4: Pendampingan usaha</li>
+                    </ul>
+                    <p>Pendaftaran dapat dilakukan melalui sekretariat Karang Taruna atau melalui WhatsApp di nomor 085blablablabla.</p>
+                `
+            },
+            sosial: {
+                title: "Bakti Sosial",
+                content: `
+                    <p>Program Bakti Sosial Karang Taruna Poris Gaga merupakan wujud kepedulian terhadap masyarakat yang membutuhkan.</p>
+                    <h3>Kegiatan Utama:</h3>
+                    <ul>
+                        <li>Bantuan sembako untuk keluarga kurang mampu</li>
+                        <li>Perbaikan rumah tidak layak huni</li>
+                        <li>Santunan anak yatim dan piatu</li>
+                        <li>Pengobatan gratis bekerjasama dengan puskesmas setempat</li>
+                        <li>Pembersihan lingkungan rumah warga lansia</li>
+                    </ul>
+                    <h3>Jadwal Kegiatan:</h3>
+                    <p>Bakti sosial dilaksanakan secara rutin setiap bulan dan insidental pada momen-momen tertentu:</p>
+                    <ul>
+                        <li>Setiap bulan: Pembagian sembako</li>
+                        <li>Setiap 3 bulan: Pengobatan gratis</li>
+                        <li>Ramadhan: Santunan anak yatim dan buka puasa bersama</li>
+                        <li>Menjelang hari besar: Bantuan khusus</li>
+                    </ul>
+                    <p>Masyarakat dapat mengusulkan penerima bantuan melalui RT/RW setempat.</p>
+                `
+            },
+            olahraga: {
+                title: "Olahraga dan Kesehatan",
+                content: `
+                    <p>Program Olahraga dan Kesehatan bertujuan untuk meningkatkan kebugaran dan kesehatan masyarakat melalui aktivitas fisik.</p>
+                    <h3>Kegiatan Utama:</h3>
+                    <ul>
+                        <li>Senam bersama setiap minggu</li>
+                        <li>Turnamen olahraga antar RT (sepak bola, voli, badminton)</li>
+                        <li>Pemeriksaan kesehatan gratis</li>
+                        <li>Penyuluhan tentang hidup sehat</li>
+                        <li>Pembentukan klub olahraga pemuda</li>
+                    </ul>
+                    <h3>Jadwal Kegiatan:</h3>
+                    <ul>
+                        <li>Setiap Minggu pagi: Senam bersama di lapangan kelurahan</li>
+                        <li>Setiap bulan: Turnamen olahraga (bergantian jenis olahraga)</li>
+                        <li>Setiap 6 bulan: Pemeriksaan kesehatan gratis</li>
+                        <li>Setiap 3 bulan: Penyuluhan kesehatan</li>
+                    </ul>
+                    <p>Untuk informasi lebih lanjut, dapat menghubungi pengurus Divisi Olahraga.</p>
+                `
+            }
+        };
+
+        // Data untuk divisi
+        const divisiData = {
+            humas: {
+                title: "Divisi Hubungan Masyarakat",
+                content: `
+                    <p>Divisi Hubungan Masyarakat bertugas membangun dan menjaga hubungan baik dengan berbagai pihak untuk mendukung program Karang Taruna.</p>
+                    <h3>Tugas dan Tanggung Jawab:</h3>
+                    <ul>
+                        <li>Membangun jaringan dengan instansi pemerintah dan swasta</li>
+                        <li>Mengkoordinasikan kerjasama dengan pihak eksternal</li>
+                        <li>Menjadi penghubung antara Karang Taruna dengan masyarakat</li>
+                        <li>Mengelola komunikasi dan informasi untuk publik</li>
+                        <li>Menyelenggarakan acara-acara publik relations</li>
+                    </ul>
+                    <h3>Kegiatan Terkini:</h3>
+                    <ul>
+                        <li>MoU dengan Dinas Pemuda dan Olahraga Kota Tangerang</li>
+                        <li>Kerjasama dengan beberapa UMKM lokal untuk pelatihan kewirausahaan</li>
+                        <li>Koordinasi dengan kelurahan untuk program pembinaan pemuda</li>
+                    </ul>
+                    <p><strong>Koordinator:</strong> Dede Kurniawan <br>
+                    <strong>Kontak:</strong> +62 852-8349-8372 </p>
+                `
+            },
+            kemasyarakatan: {
+                title: "Divisi Kemasyarakatan",
+                content: `
+                    <p>Divisi Kemasyarakatan fokus pada pemberdayaan masyarakat melalui berbagai program sosial dan ekonomi.</p>
+                    <h3>Tugas dan Tanggung Jawab:</h3>
+                    <ul>
+                        <li>Melakukan pendataan dan identifikasi masalah masyarakat</li>
+                        <li>Merancang program pemberdayaan masyarakat</li>
+                        <li>Melaksanakan kegiatan bakti sosial</li>
+                        <li>Memberikan pendampingan kepada masyarakat kurang mampu</li>
+                        <li>Mengkoordinasikan program dengan RT/RW setempat</li>
+                    </ul>
+                    <h3>Kegiatan Terkini:</h3>
+                    <ul>
+                        <li>Program "Poris Gaga Peduli" untuk bantuan sembako bulanan</li>
+                        <li>Pendampingan 15 keluarga pra-sejahtera</li>
+                        <li>Kerjasama dengan dinas sosial untuk program keluarga harapan</li>
+                    </ul>
+                    <p><strong>Koordinator:</strong> Akbar <br>
+                    <strong>Kontak:</strong> +62 878-8148-3231 </p>
+                `
+            },
+            pendidikan: {
+                title: "Divisi Pendidikan",
+                content: `
+                    <p>Divisi Pendidikan mengembangkan program-program pendidikan non formal untuk meningkatkan kualitas sumber daya manusia.</p>
+                    <h3>Tugas dan Tanggung Jawab:</h3>
+                    <ul>
+                        <li>Menyelenggarakan bimbingan belajar untuk siswa</li>
+                        <li>Mengadakan pelatihan keterampilan</li>
+                        <li>Meningkatkan literasi masyarakat</li>
+                        <li>Memberikan beasiswa untuk siswa berprestasi dari keluarga kurang mampu</li>
+                        <li>Mengadakan seminar dan workshop pendidikan</li>
+                    </ul>
+                    <h3>Kegiatan Terkini:</h3>
+                    <ul>
+                        <li>Bimbel gratis untuk SD-SMP setiap Sabtu dan Minggu</li>
+                        <li>Pelatihan komputer dasar untuk pemuda</li>
+                        <li>Program "Satu RT Satu Perpustakaan"</li>
+                        <li>Beasiswa untuk 10 siswa berprestasi</li>
+                    </ul>
+                    <p><strong>Koordinator:</strong> Hadana Nur Fauzi <br>
+                    <strong>Kontak:</strong> +62 896-5487-9036 </p>
+                `
+            },
+            keagamaan: {
+                title: "Divisi Keagamaan",
+                content: `
+                    <p>Divisi Keagamaan memfasilitasi kegiatan keagamaan dan pengembangan nilai-nilai spiritual bagi generasi muda.</p>
+                    <h3>Tugas dan Tanggung Jawab:</h3>
+                    <ul>
+                        <li>Menyelenggarakan pengajian rutin</li>
+                        <li>Memperingati hari-hari besar keagamaan</li>
+                        <li>Mengadakan pesantren kilat untuk remaja</li>
+                        <li>Membina kelompok-kelompok keagamaan pemuda</li>
+                        <li>Mengkoordinasikan kegiatan dengan majelis taklim setempat</li>
+                    </ul>
+                    <h3>Kegiatan Terkini:</h3>
+                    <ul>
+                        <li>Pengajian remaja setiap Jumat malam</li>
+                        <li>Peringatan Maulid Nabi dan Isra' Mi'raj</li>
+                        <li>Pesantren kilat setiap bulan Ramadhan</li>
+                        <li>Pembacaan Yasin dan Tahlil setiap malam Jumat</li>
+                    </ul>
+                    <p><strong>Koordinator:</strong> Ijul Baihaki <br>
+                    <strong>Kontak:</strong> +62 851-7968-1716 </p>
+                `
+            },
+            lingkungan: {
+                title: "Divisi Lingkungan Hidup",
+                content: `
+                    <p>Divisi Lingkungan Hidup melaksanakan program pelestarian lingkungan dan penyadaran masyarakat tentang pentingnya menjaga lingkungan.</p>
+                    <h3>Tugas dan Tanggung Jawab:</h3>
+                    <ul>
+                        <li>Melaksanakan program penghijauan</li>
+                        <li>Mengelola bank sampah</li>
+                        <li>Menyelenggarakan pelatihan daur ulang sampah</li>
+                        <li>Melakukan pemantauan kebersihan lingkungan</li>
+                        <li>Mengadakan penyuluhan lingkungan hidup</li>
+                    </ul>
+                    <h3>Kegiatan Terkini:</h3>
+                    <ul>
+                        <li>Program "Poris Gaga Hijau" dengan penanaman 100 pohon</li>
+                        <li>Bank sampah di 5 titik RW</li>
+                        <li>Pelatihan membuat kerajinan dari sampah plastik</li>
+                        <li>Kerja bakti bersih lingkungan setiap bulan</li>
+                    </ul>
+                    <p><strong>Koordinator:</strong> Yusuf Ramadani <br>
+                    <strong>Kontak:</strong> +62 897-4891-960 </p>
+                `
+            },
+            seni: {
+                title: "Divisi Seni Budaya",
+                content: `
+                    <p>Divisi Seni Budaya mengembangkan dan melestarikan seni budaya lokal melalui berbagai kegiatan kesenian.</p>
+                    <h3>Tugas dan Tanggung Jawab:</h3>
+                    <ul>
+                        <li>Mengembangkan sanggar seni</li>
+                        <li>Menyelenggarakan pagelaran seni budaya</li>
+                        <li>Melestarikan kesenian tradisional</li>
+                        <li>Memberikan pelatihan seni kepada generasi muda</li>
+                        <li>Mengikuti festival seni budaya</li>
+                    </ul>
+                    <h3>Kegiatan Terkini:</h3>
+                    <ul>
+                        <li>Sanggar tari tradisional untuk anak-anak</li>
+                        <li>Pentas seni setiap 6 bulan sekali</li>
+                        <li>Pelatihan musik tradisional angklung</li>
+                        <li>Partisipasi dalam festival budaya kota Tangerang</li>
+                    </ul>
+                    <p><strong>Koordinator:</strong> Reski Satriadi <br>
+                    <strong>Kontak:</strong> +62 896-5394-8507 </p>
+                `
+            },
+            olahraga: {
+                title: "Divisi Olahraga",
+                content: `
+                    <p>Divisi Olahraga mengorganisir kegiatan olahraga dan pengembangan bakat olahraga pemuda.</p>
+                    <h3>Tugas dan Tanggung Jawab:</h3>
+                    <ul>
+                        <li>Menyelenggarakan turnamen olahraga</li>
+                        <li>Membina klub-klub olahraga pemuda</li>
+                        <li>Mengadakan senam bersama masyarakat</li>
+                        <li>Mengidentifikasi bakat olahraga muda</li>
+                        <li>Memfasilitasi pembinaan atlet berpotensi</li>
+                    </ul>
+                    <h3>Kegiatan Terkini:</h3>
+                    <ul>
+                        <li>Turnamen sepak bola antar RT setiap tahun</li>
+                        <li>Klub bulutangkis pemuda Poris Gaga</li>
+                        <li>Senam sehat setiap minggu pagi</li>
+                        <li>Pembinaan 10 atlet muda berpotensi</li>
+                    </ul>
+                    <p><strong>Koordinator:</strong> Nara <br>
+                    <strong>Kontak:</strong> +62 878-7650-9155 </p>
+                `
+            },
+            digital: {
+                title: "Divisi Digital dan Informasi",
+                content: `
+                    <p>Divisi Digital dan Informasi mengelola media sosial, website, dan sistem informasi Karang Taruna.</p>
+                    <h3>Tugas dan Tanggung Jawab:</h3>
+                    <ul>
+                        <li>Mengelola website dan media sosial Karang Taruna</li>
+                        <li>Membuat konten digital untuk promosi kegiatan</li>
+                        <li>Memberikan pelatihan literasi digital kepada masyarakat</li>
+                        <li>Mengembangkan sistem informasi untuk administrasi</li>
+                        <li>Mendokumentasikan kegiatan melalui foto dan video</li>
+                    </ul>
+                    <h3>Kegiatan Terkini:</h3>
+                    <ul>
+                        <li>Pengembangan website Karang Taruna Poris Gaga</li>
+                        <li>Pelatihan digital marketing untuk UMKM</li>
+                        <li>Manage Instagram dan Facebook Karang Taruna</li>
+                        <li>Pembuatan database warga berbasis digital</li>
+                    </ul>
+                    <p><strong>Koordinator:</strong> Haddad Al Farisi <br>
+                    <strong>Kontak:</strong> 62 895-3649-15200 </p>
+                `
+            }
+        };
+
+        // Event listener untuk program detail
+        document.querySelectorAll('.program-detail').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const programId = this.getAttribute('data-program');
+                showModal(programData[programId].title, programData[programId].content);
+            });
+        });
+
+        // Event listener untuk divisi detail
+        document.querySelectorAll('.divisi-detail').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const divisiId = this.getAttribute('data-divisi');
+                showModal(divisiData[divisiId].title, divisiData[divisiId].content);
+            });
+        });
+
+        // Fungsi untuk menampilkan modal
+        function showModal(title, content) {
+            modalTitle.innerHTML = title;
+            modalBody.innerHTML = content;
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden"; // Mencegah scroll di background
+        }
+
+        // Event listener untuk menutup modal
+        closeModal.addEventListener('click', function() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; // Mengembalikan scroll
+        });
+
+        // Menutup modal ketika klik di luar area konten modal
+        window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Terima kasih! Pesan Anda telah berhasil dikirim. Kami akan segera meresponsnya.');
+            this.reset();
+        });
+
+        // Sticky header on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('sticky');
+            } else {
+                header.classList.remove('sticky');
+            }
+        });
+    </script>
+</body>
+</html>
